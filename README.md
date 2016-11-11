@@ -17,3 +17,13 @@ module.exports = function(environment) {
   };
 });
 ```
+
+And we insert `<link` tags for your external CSS into `{{head` of your `app/index.html` as such:
+
+```html
+  <link ref="stylesheet" href="//my-url-to-something-like-font-awesome.css">
+
+  <!-- and now the stuff Ember CLI adds for you in index.html -->
+  <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+</head>
+```
