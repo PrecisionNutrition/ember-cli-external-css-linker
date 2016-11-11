@@ -1,27 +1,19 @@
-# Ember-cli-external-css-linker
+# ember-cli-external-css-linker [![Build Status](https://travis-ci.org/PrecisionNutrition/ember-cli-external-css-linker.svg?branch=master)](https://travis-ci.org/PrecisionNutrition/ember-cli-external-css-linker)
 
-This README outlines the details of collaborating on this Ember addon.
+This addon allows for programmatic insertion of your external style sheets so that you don't have to see annoying 404s in your test environment, or what have you.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-cli-external-css-linker`
-* `npm install`
-* `bower install`
+* `ember install ember-cli-external-css-linker`
 
-## Running
+In your `config/environment.js` file:
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-## Running Tests
-
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+```javascript
+module.exports = function(environment) {
+  var ENV = {
+    externalStyleSheets: [
+      '//my-url-to-something-like-font-awesome.css'
+    ],
+  };
+});
+```
