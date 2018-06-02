@@ -1,15 +1,15 @@
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
-import Ember from 'ember';
+import { module, test } from 'qunit';
+import { visit } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 
-moduleForAcceptance('Acceptance | it works');
+module('Acceptance | it works', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('listed stylesheets have link tags inserted', function(assert) {
-  visit('/');
+  test('inserts a link tag into the head tag', async function(assert) {
+    await visit('/');
 
-  andThen(function() {
-    let insertedLinkTag = Ember.$('link[href="/fake.css"]');
+    let insertedLinkTag = document.querySelector('link[href="/fake.css"]');
 
-    assert.equal(insertedLinkTag.length, 1);
+    assert.ok(insertedLinkTag);
   });
 });
