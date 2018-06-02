@@ -1,17 +1,15 @@
-/* jshint node: true */
 'use strict';
 
 module.exports = {
   name: 'ember-cli-external-css-linker',
 
-  contentFor: function (type, config) {
+  contentFor(type, config) {
     if (type === 'head') {
-      var linkTags;
-      var URLs = config.externalStyleSheets || [];
+      let urls = config.externalStyleSheets || [];
 
-      return URLs
+      return urls
         .map(function(url) {
-          return '<link href="' + url + '" rel="stylesheet" type="text/css">';
+          return `<link href="${url}" rel="stylesheet" type="text/css">`;
         })
         .join('');
     }
