@@ -22,6 +22,7 @@
 /yarn.lock
 /package-lock.json
 .gitkeep
+/.template-lintrc.js
 
 # ember-try
 /.node_modules.ember-try/
